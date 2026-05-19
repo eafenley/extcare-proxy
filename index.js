@@ -22,12 +22,12 @@ app.all('/', async (req, res) => {
     const data = await response.text();
     res.status(response.status).send(data);
   } catch (error) {
-    console.error('Proxy error:', error);
+    console.error('Proxy error:', error.message);
     res.status(500).json({ error: "Proxy failed" });
   }
 });
 
 const port = process.env.PORT || 3000;
-app.listen(port, () => {
-  console.log(`Proxy running on port ${port}`);
+app.listen(port, '0.0.0.0', () => {
+  console.log(`✅ Proxy running on port ${port}`);
 });
