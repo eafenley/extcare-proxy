@@ -1,13 +1,16 @@
 FROM php:8.3-apache
 
-# Enable required PHP modules
+# Install required extensions and enable mod_rewrite
 RUN docker-php-ext-install mysqli && \
     a2enmod rewrite
 
-# Copy all files (including index.php) into the web root
+# Copy files to web root
 COPY . /var/www/html/
 
-# Expose port 80
+# Set proper permissions
+RUN chown -R www-data:www-data /var/www/html
+
+# Expose port
 EXPOSE 80
 
 # Start Apache
