@@ -1,17 +1,19 @@
 FROM php:8.3-apache
 
-# Install required extensions and enable mod_rewrite
-RUN docker-php-ext-install mysqli && \
-    a2enmod rewrite
+# Remove conflicting MPM modules and enable the correct one
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends apache2-utils && \
+    a2dismod mpm_event mpm_worker && \
+    a2enmod mpm_prefork rewrite && \
+    docker-php-ext-install mysqli && \
+    apt-get clean && rm -rf /var/lib/apt/lists/*
 
-# Copy files to web root
+# Copy files
 COPY . /var/www/html/
 
-# Set proper permissions
+# Set permissions
 RUN chown -R www-data:www-data /var/www/html
 
-# Expose port
-EXPOSE 80
+EXPOSE 3000
 
-# Start Apache
 CMD ["apache2-foreground"]
