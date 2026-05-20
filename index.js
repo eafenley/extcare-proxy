@@ -6,10 +6,10 @@ app.use(express.raw({ type: 'application/json' }));
 
 // Browser test
 app.get('/', (req, res) => {
-  res.json({ status: "ok", message: "No data received from camera - proxy is working" });
+  res.json({ status: 'ok', message: 'No data received from camera - proxy is working' });
 });
 
-// POST from MOBOTIX
+// POST from MOBOTIX camera
 app.post('/', async (req, res) => {
   try {
     const targetUrl = 'https://cloud01.extcare.stagrp.com/vcr-cloud/external/actions/telesitterAlert';
@@ -29,7 +29,7 @@ app.post('/', async (req, res) => {
     res.status(response.status).send(data);
   } catch (error) {
     console.error('Proxy error:', error.message);
-    res.status(500).json({ error: "Proxy failed" });
+    res.status(500).json({ error: 'Proxy failed' });
   }
 });
 
