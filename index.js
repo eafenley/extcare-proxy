@@ -12,8 +12,8 @@ app.get('/', (req, res) => {
 // POST from MOBOTIX camera
 app.post('/', async (req, res) => {
   try {
-    const targetUrl = 'https://cloud01.extcare.stagrp.com/vcr-cloud/external/actions/telesitterAlert';
-    const bearerToken = 'eyJjdHkiOiJKV1QiLCJ2ZXJzaW9uSWQiOiJkOWE0ZDdiZi1kMDE0LTRhNmQtYjU4ZC1lZTE5MWZmMGRjMjEiLCJ0eXBlIjoiZXh0ZXJuYWwiLCJhbGciOiJkaXIiLCJlbmMiOiJBMTkyQ0JDLUhTMzg0In0..1CG-dDk0g3Tl-IyZMi8JoA.NWOWsCJvA-K_bG-AC6zYHoq5RpMbZERN4iUyfy8mKVZmjrRyC4sK776-UXF4rEPKhSY2GR0bDiVK7Rlqeoxl12IlpCYR1_KlJ8TjGln_3tcoYghL-Ck2gBsl31ZXmGEIjajiX11TDsQT9Yr7YSRyqOsJrvIi1BR9vjrwVkIcO60hgor4F1GDeoW7etJcEGY3074z7Z3ruHAmyuc9ljpvo1peKtvNbigeJzr7_uIyVe_9vMvk8ko_DDwvThFYI_BsKSId7g0tWd_63e5meKnc-wqdO0YTMqlntoN248cEED65AJHhfT7t6jTwH2r_5sEeUKw6FSi3j7YZh3-e2V9FT3iS8RRY30NydPMtExlFGwokiI-16gwO8IVg-OHLojjOzBaPitOsho5tqQ3K_bW-TVCaaKEhAJBz3A5EjIcp6B39UptYDiLUY_0Ffyf1OgkFSwIBz6ZJ3YlkUnAQfxbu7Lm4ZpndwfbvaC1Rs58-x6L51hf_myIpqhCB9ts7XE.x-YJYdDb_KiM7kzXTCJNc3D-geEWdob6';
+    const targetUrl = 'https://prod.aws.extcare.com/vcr-cloud/external/actions/telesitterAlert';
+    const bearerToken = 'eyJjdHkiOiJKV1QiLCJ2ZXJzaW9uSWQiOiJkZTAxM2Q0ZC01YjdkLTQ4NDgtODMwYi1jZTI4ZTQ2ODUxMmEiLCJ0eXBlIjoiZXh0ZXJuYWwiLCJhbGciOiJkaXIiLCJlbmMiOiJBMTkyQ0JDLUhTMzg0In0..WFMd8pccFXstUG36M169RQ.Wa0XEafupGhwVG_nadw4xkUCqJFNCqvtw7FjOf1wLU96zm0C4whfCENJTUSz6E6WPNIHqpYPIyWdxDEV_-c0b9Yxk6q7w4KBVjsRNk3JEHYuHHqOWxRH6nR9lugciTz9omzWPnFfUGj19QcOEV-XHUwWap42YjEloh6Vwc1wOc2xGE2WpFjhfja29hUE8Rn4hUFizYIxp2N9rFiw9FYuCw-6blMUgt8ctqwWhx-P5memGv4qrmkzvhzXkhhQarAY9QUIvWaYmiFLt_BsyD9w6TN9Jmcw4tX0bNH7CJUGL9EOB_ymBlu2Q96XjAwN1RZW8HAiBPwxVR7MEBQ-XL2EYY39NPbPiG4vgDUuZV2EcbOblc1Q_6e3VNVLj-NnZRYi-rq3Em2JoAqDA2KfUHyqRc1zbMLlHP8bGOoftUdcsAggu27x1CkuxvFhB31znfUnWXbDBSFesB6buSVYmx5x8CLID-3BMvvV4lIBpkeSZQuF13LJS7imw1yDQysAXX_8.qlLsUb8Aocl5aeKvI1Q6IymrMdz2NfCS';
 
     const response = await fetch(targetUrl, {
       method: 'POST',
